@@ -17,8 +17,8 @@
 <body ng-app="app">
     <div class="container">
         <div ng-controller="UsersCtrl">
-            <h1>{{titolo}}</h1>
-            <h2>Esercizio del giorno {{data }}</h2>
+            <h1>{{titolo | uppercase}}</h1>
+            <h2>Esercizio del giorno {{data |date:"dd/MM/yyyy(HH:mm:ss)" }}</h2>
             <label>Ricerca generica</label>
             <input type="text" class="form-control">
             <label>Ricerca per lingua</label>
@@ -54,7 +54,11 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
+                    <tr ng-repeat="utente in utenti track by $index">
+                    <td>{{utente.nome}}</td>
+                    <td>{{utente.cognome}}</td>
+                    <td>{{utente.sesso}}</td>
+                    <td>{{utente.lingua}}</td>
                     </tr>
                 </tbody>
             </table>
