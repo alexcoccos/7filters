@@ -22,7 +22,7 @@
             <label>Ricerca generica</label>
             <input type="text" class="form-control" ng-model="ricerca">
             <label>Ricerca per lingua</label>
-            <select class="form-control" ng-model="lingua">
+            <select class="form-control" ng-model="lingua" ng-init="lingua='Tutte'">
                <option>Tutte</option>
                <option>Italiano</option>
                <option>Inglese</option>
@@ -31,17 +31,17 @@
             <label>Cerca per sesso</label>
             <div class="radio">
                 <label>
-          <input type="radio" value=""> Entrambi
+          <input type="radio" value="Entrambi" name="sesso" ng-model="sesso"> Entrambi
         </label>
             </div>
             <div class="radio">
                 <label>
-                    <input type="radio"  value="Maschio"> Maschio
+                    <input type="radio"  value="Maschio" name="sesso" ng-model="sesso"> Maschio
                 </label>
             </div>
             <div class="radio">
                 <label>
-                    <input type="radio"  value="Femmina"> Femmina
+                    <input type="radio"  value="Femmina" name="sesso" ng-model="sesso"> Femmina
                 </label>
             </div>
             <table class="table">
@@ -54,7 +54,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr ng-repeat="utente in (risultato = (utenti  |filter:ricerca |filterLingua:lingua))"><!-- QUESTO COMANDO FA LA RICERCA GENERICA SENZA AVER BISOGNO DI SCRIVERE LA FUNZIONE-->
+                    <tr ng-repeat="utente in (risultato = (utenti  |filter:ricerca |filterLingua:lingua |filterSex:sesso))"><!-- QUESTO COMANDO FA LA RICERCA GENERICA SENZA AVER BISOGNO DI SCRIVERE LA FUNZIONE-->
                     <td>{{utente.nome}}</td>
                     <td>{{utente.cognome}}</td>
                     <td>{{utente.sesso}}</td>

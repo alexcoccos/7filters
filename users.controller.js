@@ -2,6 +2,7 @@ angular.module('app').controller('UsersCtrl', function ($scope,$interval,ItemSrv
 
     $scope.titolo = "lista utenti";
     $scope.lingua = "Tutte";
+    $scope.sesso= "Entrambi";
 
     $interval(function(){
       $scope.data = new Date();
