@@ -107,6 +107,7 @@ angular.module('app').service('ItemSrv',function(){
     return utenti;
   }
 
+
   return {
     getUser: getUser
   }

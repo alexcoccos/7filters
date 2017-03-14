@@ -20,7 +20,7 @@
             <h1>{{titolo | uppercase}}</h1>
             <h2>Esercizio del giorno {{data |date:"dd/MM/yyyy(HH:mm:ss)" }}</h2>
             <label>Ricerca generica</label>
-            <input type="text" class="form-control">
+            <input type="text" class="form-control" ng-model="ricerca">
             <label>Ricerca per lingua</label>
             <select class="form-control">
                <option>Tutte</option>
@@ -54,7 +54,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr ng-repeat="utente in utenti track by $index">
+                    <tr ng-repeat="utente in (risultato = (utenti  |filter:ricerca))"><!-- QUESTO COMANDO FA LA RICERCA GENERICA SENZA AVER BISOGNO DI SCRIVERE LA FUNZIONE-->
                     <td>{{utente.nome}}</td>
                     <td>{{utente.cognome}}</td>
                     <td>{{utente.sesso}}</td>
@@ -62,7 +62,7 @@
                     </tr>
                 </tbody>
             </table>
-            <p>Risultati ricerca:</p>
+            <p>Risultati ricerca: {{risultato.length}}</p><!-- risultato.length è il numero di record trovati -->
         </div>
     </div>
     <script src="node_modules/angular/angular.min.js"></script>
