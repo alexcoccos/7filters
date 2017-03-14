@@ -1,6 +1,7 @@
 angular.module('app').controller('UsersCtrl', function ($scope,$interval,ItemSrv) {
 
     $scope.titolo = "lista utenti";
+    $scope.lingua = "Tutte";
 
     $interval(function(){
       $scope.data = new Date();

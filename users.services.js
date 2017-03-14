@@ -1,7 +1,8 @@
 //SCRIVERE UL SERVICE CON UN METODO CHE RITORNA LA LISTA UTENTI
 angular.module('app').service('ItemSrv',function(){
 
-  var utenti = [{
+  var utenti = [
+  {
       "nome": "Samuel",
       "cognome": "Chapman",
       "sesso": "Maschio",
@@ -101,7 +102,8 @@ angular.module('app').service('ItemSrv',function(){
       "cognome": "Henderson",
       "sesso": "Femmina",
       "lingua": "Italiano"
-  }];
+  }
+];
 
   var getUser = function(){
     return utenti;

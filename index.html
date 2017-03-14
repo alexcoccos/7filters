@@ -22,7 +22,7 @@
             <label>Ricerca generica</label>
             <input type="text" class="form-control" ng-model="ricerca">
             <label>Ricerca per lingua</label>
-            <select class="form-control">
+            <select class="form-control" ng-model="lingua">
                <option>Tutte</option>
                <option>Italiano</option>
                <option>Inglese</option>
@@ -54,7 +54,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr ng-repeat="utente in (risultato = (utenti  |filter:ricerca))"><!-- QUESTO COMANDO FA LA RICERCA GENERICA SENZA AVER BISOGNO DI SCRIVERE LA FUNZIONE-->
+                    <tr ng-repeat="utente in (risultato = (utenti  |filter:ricerca |filterLingua:lingua))"><!-- QUESTO COMANDO FA LA RICERCA GENERICA SENZA AVER BISOGNO DI SCRIVERE LA FUNZIONE-->
                     <td>{{utente.nome}}</td>
                     <td>{{utente.cognome}}</td>
                     <td>{{utente.sesso}}</td>
@@ -70,6 +70,7 @@
     <!-- include items service -->
     <script src="users.services.js"></script>
     <script src="users.controller.js"></script>
+    <script src="users.filter.js"></script>
     </div>
 </body>
 
